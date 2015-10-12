@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Sound-Track",
+  "description": "plays a sound when you open a new page",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "match_about_blank" : true,
+      "js": ["scripts/Tone.min.js", "scripts/content_script.js"],
+      "run_at" : "document_start"
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
+}
