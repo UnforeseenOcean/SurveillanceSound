@@ -134,7 +134,25 @@ function removeCookie(cookie) {
   chrome.cookies.remove({"url": url, "name": cookie.name});
   window.alert(url);
   console.log(url);
+  WriteFile(cookie.name);
+  console.log(cookie.name);
 }
+
+function WriteFile(text)
+{
+var fileWriter = new FileWriter("C:\Users\Ansh Patel\Documents\GitHub\SurveillanceSound\trackerList\data.txt");
+fileWriter.open(); 
+fileWriter.writeLine(text); 
+fileWriter.close();
+}
+//var fh = reader.readAsText("C:\Users\Ansh Patel\Documents\GitHub\SurveillanceSound\trackerList\data.txt", 3); // Open the file for writing
+
+// if(fh!=-1) // If the file has been successfully opened
+// {
+//     //var str = "Some text goes here...";
+//     fwrite(fh, text); // Write the string to a file
+//     fclose(fh); // Close the file 
+// }
 
 function removeCookiesForDomain(domain) {
   var timer = new Timer();
