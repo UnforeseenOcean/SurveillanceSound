@@ -25,10 +25,30 @@ window.onload = function() {
 		bell.triggerAttackRelease("G5", "1m", "+2n");
 	}
 };
-var okay;
+// document.ready(function(){
+// 	var okay;
+// var db="okay";
+// chrome.tabs.executeScript(tabId, {file: 'parser.js'});
+// // var myObject= Parser();
+// // myObject.initial();
+// 	});
+chrome.extension.onRequest.addListener(
+    function(request, sender, sendResponse){
+        if(request.msg == "check it") check();
+    }
+);
+
+function check()
+{
+	window.alert("checking");
+}
+
 window.addEventListener("DOMContentLoaded", function() {
   console.log("dom");
-  //onloadcookie();
+ // chrome.tabs.executeScript(null, {file:"manager.js"});
+ 	chrome.runtime.sendMessage("reflektor");
+
+  // onloadcookie();
   // okay=getCookieCount();
   // console.log(String(okay));
   // for (var i in okay)

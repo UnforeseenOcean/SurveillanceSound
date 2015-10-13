@@ -22,11 +22,30 @@ if(txt.indexOf("avclub") !=-1)
 }
 
 });
-
 function whatsup()
 {
   console.log("printing what's up");
+  chrome.runtime.sendMessage("check it");
 }
+
+// var myObject = function(){
+//     firstName:"John",
+//     lastName: "Doe",
+// function whatsup()
+// {
+//   console.log("printing what's up");
+//   chrome.runtime.sendMessage("check it");
+// }
+// };
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+        if(request.msg == "reflektor") 
+          {
+            alert("nice");
+            whatsup();
+          }
+    }
+);
+
 
 // Compares cookies for "key" (name, domain, etc.) equality, but not "value"
 // equality.
