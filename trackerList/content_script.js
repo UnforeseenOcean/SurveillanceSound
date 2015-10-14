@@ -40,13 +40,23 @@ chrome.extension.onRequest.addListener(
 
 function check()
 {
+	console.log("nice");
 	window.alert("checking");
+	alert("sup");
+
 }
 
+
+window.addEventListener("load", function() {
+	chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+  console.log(response.farewell);
+});
+
+});
 window.addEventListener("DOMContentLoaded", function() {
   console.log("dom");
  // chrome.tabs.executeScript(null, {file:"manager.js"});
- 	chrome.runtime.sendMessage("reflektor");
+ 	chrome.extension.sendMessage("reflektor");
 
   // onloadcookie();
   // okay=getCookieCount();

@@ -15,6 +15,7 @@ chrome.cookies.onChanged.addListener(function(info) {
 //obj= $.parse(info);
 console.log(info.cookie.domain);
 txt=info.cookie.domain;
+chrome.extension.sendMessage("check it");
 if(txt.indexOf("avclub") !=-1)
 {
   avClub_Count++;
@@ -25,8 +26,17 @@ if(txt.indexOf("avclub") !=-1)
 function whatsup()
 {
   console.log("printing what's up");
-  chrome.runtime.sendMessage("check it");
+  window.alert("nice");
+  alert("sup");
+  chrome.extension.sendMessage("check it");
 }
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log("from the extension");
+    if (request.greeting == "hello")
+      sendResponse({farewell: avClub_Count});
+  });
 
 // var myObject = function(){
 //     firstName:"John",
@@ -37,7 +47,7 @@ function whatsup()
 //   chrome.runtime.sendMessage("check it");
 // }
 // };
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
         if(request.msg == "reflektor") 
           {
             alert("nice");

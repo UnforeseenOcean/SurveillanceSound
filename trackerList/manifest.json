@@ -1,4 +1,4 @@
-{
+  {
   "name" : "surveillance Sound",
   "version" : "0.8",
   "description" : "Testing Chrome Cookie API",
@@ -24,6 +24,7 @@
   ],
   "web_accessible_resources": [ 
   "manifest.json",
+  "manager.js",
   "parser.js"
   ]
 }
