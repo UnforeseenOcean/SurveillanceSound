@@ -1,5 +1,8 @@
 window.onload = function() {
 	var random = Math.random();
+	chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+  console.log(response.farewell);
+});
   //console.log("what sayin");
   if(random < 0.5){
 		var reverb = new Tone.Freeverb().toMaster();
