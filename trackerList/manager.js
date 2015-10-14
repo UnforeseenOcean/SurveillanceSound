@@ -7,7 +7,8 @@
 // }
 var avClub_Count=0;
 var domain_list=[]; // list of unique domains
-var cookies_list=[]; // total list of cookies 
+var cookies_list=[]; // total list of cookies
+var count_list=[]; // count list of cookies 
 window.onload= function() {
   console.log("in manager.js");
  // whatyousay();
@@ -30,8 +31,14 @@ if(domain_list.indexOf(cookies_list[cookies_list.length-1]) == -1)
 
   console.log("new domain added");
   domain_list.push(cookies_list[cookies_list.length-1])
+  count_list.push(1);
 
 
+}
+else
+{
+  var num=domain_list.indexOf(cookies_list[cookies_list.length-1]);
+  count_list[num]++;
 }
 
 console.log(domain_list.toString());
@@ -55,7 +62,7 @@ chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log("from the extension");
     if (request.greeting == "hello")
-      sendResponse({farewell: domain_list});
+      sendResponse({farewell: count_list, nope: domain_list});
   });
 
 // var myObject = function(){

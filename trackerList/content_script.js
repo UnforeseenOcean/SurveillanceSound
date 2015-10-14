@@ -1,7 +1,10 @@
 window.onload = function() {
 	var random = Math.random();
+
+	//check to retrieve domains
 	chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
   console.log(response.farewell);
+  console.log(response.nope);
 });
   //console.log("what sayin");
   if(random < 0.5){
@@ -28,13 +31,7 @@ window.onload = function() {
 		bell.triggerAttackRelease("G5", "1m", "+2n");
 	}
 };
-// document.ready(function(){
-// 	var okay;
-// var db="okay";
-// chrome.tabs.executeScript(tabId, {file: 'parser.js'});
-// // var myObject= Parser();
-// // myObject.initial();
-// 	});
+
 chrome.extension.onRequest.addListener(
     function(request, sender, sendResponse){
         if(request.msg == "check it") check();
@@ -50,12 +47,12 @@ function check()
 }
 
 
-window.addEventListener("load", function() {
-	chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-  console.log(response.farewell);
-});
+// window.addEventListener("load", function() {
+// 	chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+//   console.log(response.farewell);
+// });
 
-});
+// });
 window.addEventListener("DOMContentLoaded", function() {
   console.log("dom");
  // chrome.tabs.executeScript(null, {file:"manager.js"});
