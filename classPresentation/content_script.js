@@ -20,9 +20,9 @@ window.onload = function() {
 		// {
 		// cookies.push(response.farewell[i]);
 		// }
-		for(var i=0;i<cookies.length;i++) {http://www.avclub.com/tvclub/agents-shield-tethers-strong-subplots-bland-inhuma-226809
+		for(var i=0;i<cookies.length;i++) {
 			var temp=cookies[i];
-			console.log("The "+i+" th cookie is :"+cookies[i]);
+			console.log("The "+i+"th domain has :"+cookies[i]+" cookies");
 			sum+=parseInt(cookies[i]);
 			if(temp>largest)
 				largest=temp;
@@ -32,7 +32,7 @@ window.onload = function() {
 			weights.push(cookies[i]/largest);
 		}
 		cookieNum=sum;
-		console.log("the sum is :"+sum);
+		console.log("Total number of cookies on this page are :"+sum);
 		console.log(weights);
 	});
 
@@ -69,7 +69,7 @@ var currentChord = (function(){
 	}());
 
 	//this variable controls the volume of the delay depending on cookies per page
-	var cookieThreshold = 20;
+	var cookieThreshold = 100; //set to a fixed value right now
 
 	var delay = new Tone.FeedbackDelay("4t", 0.5).toMaster();
 	var dryWet = cookieNum/cookieThreshold;
