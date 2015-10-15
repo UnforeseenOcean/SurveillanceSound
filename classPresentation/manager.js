@@ -234,5 +234,5 @@ function onloadcookie() {
 document.addEventListener('DOMContentLoaded', function() {
   // alert("sup");
   // window.alert("nice");
- onloadcookie();
+ //onloadcookie();
 });
